@@ -1,6 +1,7 @@
 # Copyright (c) 2021 The ZMK Contributors
 # SPDX-License-Identifier: MIT
 
+CONFIG_ZMK_COMBO_MAX_COMBOS_PER_KEY=50
 
 if SHIELD_FISH_LEFT
 # 右親機にしたければ "if SHIELD_FISH_RIGHT" にする
