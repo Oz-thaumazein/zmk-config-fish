@@ -55,24 +55,6 @@
             bindings = <&kp LC(F)>, <&kp LC(H)>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
-        ecl: english_capslock {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp LANG2>, <&kp CAPS>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        jnl: japanese_numlock {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp LANG1>, <&kp KP_NUM>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
-        eaf4: escape_alt_f4 {
-            compatible = "zmk,behavior-mod-morph";
-            #binding-cells = <0>;
-            bindings = <&kp ESC>, <&kp LA(F4)>;
-            mods = <(MOD_LSFT|MOD_RSFT)>;
-        };
     };
 
     macros {
@@ -114,19 +96,28 @@
 
         layer_NandE {
             bindings = <
-                        &f78        &kp UP      &kp F6      &ecl                &kp EQUAL   &kp N7      &kp N8      &kp N9      
-&cfh        &kp LC(S)   &kp LEFT    &kp DOWN    &kp RIGHT   &jnl                &kp N0      &kp N4      &kp N5      &kp N6      &kp SEMI    &kp SQT     
+                        &kp F7      &kp UP      &kp F6      &kp LANG2           &kp EQUAL   &kp N7      &kp N8      &kp N9      
+&kp LC(F)   &kp LC(S)   &kp LEFT    &kp DOWN    &kp RIGHT   &kp LANG1           &kp N0      &kp N4      &kp N5      &kp N6      &kp SEMI    &kp SQT     
             &kp LC(Z)   &kp LC(X)   &kp LC(C)   &kp LC(V)                                   &kp N1      &kp N2      &kp N3      &kp FSLH    
-                                                &trans      &none               &kp RALT    &trans      
+                                                &trans      &none               &mo 3       &trans      
             >;
         };
 
         layer_MandM {
             bindings = <
-                        &kp F1      &kp F2      &kp F3      &kp F5              &kp RC(EQUAL) &kp KP_N7 &kp KP_N8   &kp KP_N9   
-&eaf4       &kp LG(E)   &kp F9      &kp F10     &kp F11     &kp F12             &kp RC(MINUS) &kp KP_N4 &kp KP_N2   &kp KP_N6   &kp KP_N0   &kp KP_DOT  
+                        &kp F1      &kp F2      &kp F3      &kp LCTRL           &kp RC(EQUAL) &kp KP_N7 &kp KP_N8   &kp KP_N9   
+&kp ESC     &kp LG(E)   &kp F9      &kp F10     &kp F12     &kp F5              &kp RC(MINUS) &kp KP_N4 &kp KP_N2   &kp KP_N6   &kp KP_N0   &kp KP_DOT  
             &kp LG(I)   &kp LC(W)   &kp LC(TAB) &kp LC(T)                                   &kp KP_N1   &kp TAB     &kp KP_N3   &kp RGUI    
-                                                &trans      &kp LALT            &none       &trans      
+                                                &trans      &mo 3               &none       &trans      
+            >;
+        };
+
+        layer_BandS {
+            bindings = <
+                        &kp F8      &kp PSCRN   &kp F11     &kp CAPS            &bt BT_SEL 0 &bt BT_PRV &bt BT_CLR  &bt BT_NXT  
+&kp F4      &kp GRAVE   &out OUT_USB &out OUT_TOG &out OUT_BLE &kp KP_NUM       &bt BT_DISC 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_CLR_ALL 
+            &kp BSLH    &sys_reset  &kp SPACE   &bootloader                                 &bt BT_DISC 1 &bt BT_DISC 2 &bt BT_DISC 3 &bt BT_DISC 4 
+                                                &trans      &none               &none       &trans      
             >;
         };
     };
